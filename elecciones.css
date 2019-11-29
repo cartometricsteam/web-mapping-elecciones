@@ -1,0 +1,76 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#mapa {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+#btnMapaBase {
+	position: absolute;
+	top: 156px;
+	right: 10px;
+	height: 30px;
+	width: 30px;
+	border: none;
+	border-radius: 4px;
+	box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+}
+
+#leyenda {
+	position: absolute;
+	bottom: 30px;
+	right: 10px;
+	padding: 10px;
+	background-color: rgb(255, 255, 255, .9);
+	border-radius: 7px;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,.6);
+}
+
+#leyenda h1 {
+	font-size: 1.2rem;
+	margin: 0 0 10px 0;
+}
+
+#leyenda .cuadrado {
+	display: inline-block;
+	height: 15px;
+	width: 15px;
+	margin-right: 5px;
+}
+
+/* Mapbox Popup */
+.mapboxgl-popup-content {
+	padding: 10px 30px 5px 10px;
+	background-color: rgba(15, 204, 192, 0.95);
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,.6);
+	color: white;
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+	border-top-color: rgba(15, 204, 192, 0.95);
+}
+
+.mapboxgl-popup-content .mapboxgl-popup-close-button {
+	top: 1px;
+	right: 1px;
+	font-size: 1rem;
+	padding: 0px 4px 2px;
+	border-radius: 50%;
+	background-color: rgb(75, 226, 217);
+	color: white;
+}
+
+.mapboxgl-popup-content .mapboxgl-popup-close-button:hover {
+	background-color: rgb(143, 237, 231);
+}
+
+.mapboxgl-popup-content h1 {
+	margin: 0 0 5px 0;
+	font-size: 1rem;
+}
