@@ -39,9 +39,16 @@ body {
 
 #leyenda .cuadrado {
 	display: inline-block;
-	height: 15px;
-	width: 15px;
+	border-radius: 20%;
+  width: 15px;
+  height: 15px;
 	margin-right: 5px;
+}
+
+#leyenda .etiqueta {
+	vertical-align: top;
+	font-size: .8rem;
+	color: rgb(60,60,60);
 }
 
 /* Mapbox Popup */

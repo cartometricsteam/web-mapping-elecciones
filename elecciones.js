@@ -11,6 +11,8 @@ var mapasBase = [
 	'mapbox://styles/cartometricslab/ck3iff63c1vxz1dndgtipgqg4'
 ];
 var idMapaBaseActual = 0;
+var partidos = ['PSOE', 'PP', 'CIUDADANOS', 'PODEMOS-IU', 'VOX'];
+var colores = ['rgba(250, 56, 56)', 'rgb(6, 85, 244)', 'rgb(253, 95, 33)', 'rgb(146, 21, 224)', 'rgb(88, 251, 24)'];
 
 
 /****************************************************/
@@ -37,6 +39,21 @@ mapa.addControl(new MapboxGeocoder({
 	placeholder: 'Buscar'
 }), 'top-right');
 
+// Añadir leyenda
+var leyenda = document.getElementById('leyenda');
+for (i = 0; i < partidos.length; i++) {
+  var elemento = document.createElement('div');
+  var cuadrado = document.createElement('span');
+  cuadrado.className = 'cuadrado';
+  cuadrado.style.backgroundColor = colores[i];
+  var etiqueta = document.createElement('span');
+  etiqueta.className = 'etiqueta';
+  etiqueta.innerHTML = partidos[i];
+  elemento.appendChild(cuadrado);
+  elemento.appendChild(etiqueta);
+  leyenda.appendChild(elemento);
+}
+
 // Añadir event listener a botón de cambio de mapa base
 var btnMapaBase = document.getElementById('btnMapaBase');
 btnMapaBase.addEventListener('click', cambiarMapaBase);
@@ -61,10 +78,11 @@ function cargarPopups() {
 		var nombreMunicipio = e.features[0].properties.Nombre_de;
 		var votosPSOE = e.features[0].properties.PSOE;
 		var votosPP = e.features[0].properties.PP;
+		var votosCs = e.features[0].properties.Cs;
 		var votosPodemos = e.features[0].properties.PODEMOS_IU;
 		var votosVox = e.features[0].properties.VOX;
 		var votosPacma = e.features[0].properties.PACMA;
-		var popupContent = '<h1>' + nombreMunicipio + '</h1><div>PSOE: ' + votosPSOE + '</div><div>PP: ' + votosPP + '</div><div>PODEMOS/IU: ' + votosPodemos + '</div><div>VOX: ' + votosVox + '</div><div>PACMA: ' + votosPacma;
+		var popupContent = '<h1>' + nombreMunicipio + '</h1><div>PSOE: ' + votosPSOE + '</div><div>PP: ' + votosPP + '</div><div>CIUDADANOS: ' + votosCs + '</div><div>PODEMOS-IU: ' + votosPodemos + '</div><div>VOX: ' + votosVox + '</div><div>PACMA: ' + votosPacma;
 		 
 		new mapboxgl.Popup()
 			.setLngLat(coordinates)
